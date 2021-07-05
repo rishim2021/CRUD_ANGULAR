@@ -1,0 +1,87 @@
+<div class="col-12 bol d-flex justify-content-center">
+    <div class="card" >
+        
+        <div class="card-header">
+          <p *ngIf="addOrEdit == true">
+            Add Navbar
+          </p> 
+          <p *ngIf="addOrEdit == false">
+            Edit Navbar
+          </p>
+        </div>
+        <div class="card-body">
+            <!-- <form #nav> -->
+               
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name</label>
+                  <input [(ngModel)]="navname" name="navname" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Nav name">
+                
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Description</label>
+                    <input [(ngModel)]="navdes" name="navdes" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Description...">
+                   
+                  </div>
+                  <select class="form-select" [(ngModel)]="position" name="cars" id="cars">
+                    <option selected value="0">Logo</option>
+                    <option value="1">Left</option>
+                    <option value="2">Right</option>
+                  
+                  </select>
+               
+                  <br>
+                <button type="submit" *ngIf="addOrEdit == true" class="btn btn-primary" (click)="submit()">Add</button>
+                <button type="submit" *ngIf="addOrEdit == false" class="btn btn-primary" (click)="editSubmit()">Edit</button>&nbsp;
+                <button type="submit" *ngIf="addOrEdit == false" class="btn btn-primary" (click)="addButton()">Add</button>
+              <!-- </form> -->
+
+
+              
+        </div>
+
+    </div>
+    
+</div>
+
+
+
+
+<div class="card">
+    <div class="card-header">
+        Nav Items Listing
+    </div>
+    
+    <div class="card-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of navData">
+                    <th scope="row">{{data.id}}</th>
+                    <td>{{data.name}}</td>
+                    <td>{{data.description}}</td>
+                    <td *ngIf="data.position == 0">Logo</td>
+                    <td *ngIf="data.position == 1">Left</td>
+                    <td *ngIf="data.position == 2">Right</td>
+                    <td class="cursore">
+                        <a (click)="edit(data.id)">Edit</a>| <a (click)="delete(data.id)">Delete</a> 
+                    </td>    
+                </tr>
+                  
+                </tbody>
+              </table>
+              
+            
+          
+
+        
+    </div>
+</div>
+

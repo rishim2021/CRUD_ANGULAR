@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div *ngFor="let data of navbarData">
+    <a *ngIf="data.position == 0" class="navbar-brand" href="#">
+      {{data.name}}</a>
+  </div>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li *ngFor="let data of navbarData" class="nav-item ">
+          <a *ngIf="data.position == 1" class="nav-link" href="#">{{data.name}} <span class="sr-only">(current)</span></a>
+        </li>
+        
+      </ul>
+      <div *ngFor="let data of navbarData">
+        <span *ngIf="data.position == 2" class="navbar-text">
+          {{data.name}}
+        </span>
+      </div>
+      
+    </div>
+  </nav>
+
+  
